@@ -45,12 +45,12 @@
             color: inherit;
         }
 
-        /* --- Header / Logo --- */
+        /* --- Header / ZMNIEJSZONY PASEK GÓRNY --- */
         header {
-            padding: 40px 0;
+            padding: 20px 0; /* ZMNIEJSZONO padding z 40px na 20px */
             text-align: center;
-            /* Subtelne oddzielenie */
             border-bottom: 1px solid rgba(176, 176, 176, 0.2);
+            background-color: white; /* Czyste tło dla paska */
         }
 
         .logo-group {
@@ -61,40 +61,40 @@
 
         /* Minimalistyczny emblemat nad logo */
         .silver-mark {
-            width: 30px;
-            height: 30px;
+            width: 25px; /* Delikatnie zmniejszono rozmiar */
+            height: 25px;
             border: 1px solid var(--silver-accent);
             border-radius: 50%;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             color: var(--silver-accent);
         }
 
         .logo {
             font-family: var(--serif-font);
-            font-size: 1.6rem;
+            font-size: 1.4rem; /* Delikatnie zmniejszono font logo */
             font-weight: 700;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         /* --- Navigation --- */
         nav {
-            margin-top: 30px;
+            margin-top: 20px; /* ZMNIEJSZONO margines */
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px; /* Delikatnie zmniejszono odstępy */
         }
 
         nav a {
-            font-size: 0.8rem;
+            font-size: 0.75rem; /* Delikatnie zmniejszono font */
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 400;
@@ -105,11 +105,43 @@
             color: var(--dark-text);
         }
 
-        /* --- Hero Section (Minimalistyczne tło) --- */
+        /* --- Hero Section (NOWY UKŁAD Z ZDJĘCIAMI) --- */
         .hero {
             padding: 80px 0;
+            background-color: white;
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        /* Kwadratowe kontenery na zdjęcia */
+        .hero-img-square {
+            flex: 0 0 auto;
+            width: 100px; /* Początkowy rozmiar, dostosuje się wysokością do tekstu */
+            height: 100px;
+            border: 1px solid rgba(176, 176, 176, 0.3);
+            overflow: hidden; /* Żeby zdjęcie nie wystawało */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-bg); /* Jasne tło jako placeholder */
+        }
+
+        .hero-img-square img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Wypełnia kwadrat bez deformacji */
+        }
+
+        .hero-text {
+            flex: 1; /* Zajmuje pozostałą przestrzeń */
             text-align: center;
-            background-color: white; /* Czysty kontrast */
+            max-width: 550px;
+            margin: 0 auto;
         }
 
         .hero h1 {
@@ -126,8 +158,7 @@
 
         .hero p {
             font-size: 1rem;
-            max-width: 550px;
-            margin: 0 auto 50px auto;
+            margin-bottom: 50px;
             color: #666;
             font-weight: 300;
         }
@@ -169,7 +200,6 @@
             gap: 20px;
         }
 
-        /* Czysty kwadracik, cienka ramka */
         .option-card {
             border: 1px solid rgba(176, 176, 176, 0.3);
             background-color: white;
@@ -182,7 +212,6 @@
             border-color: var(--silver-accent);
         }
 
-        /* Ikony jako proste linie (SVG byłyby idealne) */
         .jewelry-icon {
             font-size: 2.2rem;
             color: var(--silver-accent);
@@ -219,6 +248,14 @@
             .options-grid {
                 grid-template-columns: 1fr;
             }
+            .hero-layout {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .hero-img-square {
+                width: 80px;
+                height: 80px;
+            }
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -246,9 +283,21 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Zachowaj najpiękniejsze <span>wspomnienia</span></h1>
-                <p>Odkryj minimalistyczną biżuterię ze srebra, w której zamkniesz unikalne wspomnienia macierzyństwa: pierwsze zdjęcie USG, kosmyk włosów, lub odbitkę rączki.</p>
-                <a href="#komponuj" class="btn">Poznaj kolekcję</a>
+                <div class="hero-layout">
+                    <div class="hero-img-square">
+                        <img src="p.png" alt="Pierścionek Pamiątkowy (p.png)">
+                    </div>
+
+                    <div class="hero-text">
+                        <h1>Zachowaj najpiękniejsze <span>wzruszenia</span></h1>
+                        <p>Odkryj minimalistyczną biżuterię ze srebra, w której zamkniesz unikalne wspomnienia macierzyństwa: pierwsze zdjęcie USG, kosmyk włosów, lub odbitkę rączki.</p>
+                        <a href="#komponuj" class="btn">Poznaj kolekcję</a>
+                    </div>
+
+                    <div class="hero-img-square">
+                        <img src="b.png" alt="Bransoletka Pamiątkowa (b.png)">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -281,7 +330,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 SREBRNA PAMIĄTKA. Wszelkie prawa zastrzeżone.</p>
+            <p>&copy; 2023 SREBRNA PAMIĄTKA. Wszelkie prawa reserved.</p>
         </div>
     </footer>
 
