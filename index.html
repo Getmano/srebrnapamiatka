@@ -1,1 +1,289 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SREBRNA PAMIĄTKA - Minimalistyczna Biżuteria Pamiątkowa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
+    <style>
+        /* --- Reset i Style Ogólne --- */
+        :root {
+            --light-bg: #fdfaf8; /* Ciepły, bardzo jasny beż */
+            --dark-text: #333333; /* Ciemny szary, kulturalny */
+            --silver-accent: #b0b0b0; /* Srebrzysty akcent */
+            --serif-font: 'Playfair Display', serif;
+            --sans-font: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--sans-font);
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.5;
+            text-rendering: optimizeLegibility;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header / Logo --- */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            /* Subtelne oddzielenie */
+            border-bottom: 1px solid rgba(176, 176, 176, 0.2);
+        }
+
+        .logo-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Minimalistyczny emblemat nad logo */
+        .silver-mark {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--silver-accent);
+            border-radius: 50%;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            color: var(--silver-accent);
+        }
+
+        .logo {
+            font-family: var(--serif-font);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            margin-top: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 0.7);
+        }
+
+        nav a:hover {
+            color: var(--dark-text);
+        }
+
+        /* --- Hero Section (Minimalistyczne tło) --- */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background-color: white; /* Czysty kontrast */
+        }
+
+        .hero h1 {
+            font-family: var(--serif-font);
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            font-style: italic;
+            color: var(--silver-accent);
+        }
+
+        .hero p {
+            font-size: 1rem;
+            max-width: 550px;
+            margin: 0 auto 50px auto;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid var(--silver-accent);
+            background: transparent;
+            color: var(--dark-text);
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--silver-accent);
+            color: white;
+            border-color: var(--silver-accent);
+        }
+
+        /* --- Konfigurator / Kwadraciki --- */
+        .options {
+            padding: 70px 0;
+        }
+
+        .options h2 {
+            font-family: var(--serif-font);
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 55px;
+            font-weight: 400;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Czysty kwadracik, cienka ramka */
+        .option-card {
+            border: 1px solid rgba(176, 176, 176, 0.3);
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .option-card:hover {
+            border-color: var(--silver-accent);
+        }
+
+        /* Ikony jako proste linie (SVG byłyby idealne) */
+        .jewelry-icon {
+            font-size: 2.2rem;
+            color: var(--silver-accent);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .option-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .option-card p {
+            font-size: 0.85rem;
+            color: #777;
+            font-weight: 300;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(176, 176, 176, 0.2);
+            font-size: 0.75rem;
+            color: #aaa;
+            background-color: white;
+        }
+
+        /* --- Responsywność --- */
+        @media (max-width: 850px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo-group">
+                <div class="silver-mark">S·P</div>
+                <a href="#" class="logo">SREBRNA PAMIĄTKA</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#komponuj">Skomponuj</a></li>
+                    <li><a href="#">Kolekcje</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Zachowaj najpiękniejsze <span>wzruszenia</span></h1>
+                <p>Odkryj minimalistyczną biżuterię ze srebra, w której zamkniesz unikalne wspomnienia macierzyństwa: pierwsze zdjęcie USG, kosmyk włosów, lub odbitkę rączki.</p>
+                <a href="#komponuj" class="btn">Poznaj kolekcję</a>
+            </div>
+        </section>
+
+        <section id="komponuj" class="options">
+            <div class="container">
+                <h2>Skomponuj swoją pamiątkę</h2>
+                
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="jewelry-icon">◯</div>
+                        <h3>Pierścionek</h3>
+                        <p>Zatopione zdjęcie USG, ząbek...</p>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="jewelry-icon">⸻</div>
+                        <h3>Bransoletka</h3>
+                        <p>Odbitka rączki, imię dziecka...</p>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="jewelry-icon">📿</div>
+                        <h3>Naszyjnik</h3>
+                        <p>Kosmyk włosów, ważna data...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SREBRNA PAMIĄTKA. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
